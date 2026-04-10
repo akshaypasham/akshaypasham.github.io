@@ -547,6 +547,132 @@
             color: #818cf8;
         }
 
+        /* ===== COMPANY ANIMATIONS ===== */
+        .company-anim {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 60px;
+            height: 40px;
+            overflow: hidden;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        .timeline-card:hover .company-anim { opacity: 1; }
+        .timeline-card { position: relative; overflow: hidden; }
+
+        /* UPS Truck */
+        @keyframes driveTruck {
+            0% { transform: translateX(-70px); }
+            100% { transform: translateX(70px); }
+        }
+        .ups-truck {
+            position: absolute;
+            bottom: 0;
+            animation: driveTruck 3s ease-in-out infinite alternate;
+        }
+        .ups-road {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(129, 100, 0, 0.4);
+        }
+
+        /* Apple - pulsing apple */
+        @keyframes applePulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(192,132,252,0)); }
+            50% { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(192,132,252,0.5)); }
+        }
+        .apple-icon {
+            animation: applePulse 2.5s ease-in-out infinite;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        /* Mastercard - overlapping circles */
+        @keyframes mcMerge {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(4px); }
+        }
+        @keyframes mcMerge2 {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-4px); }
+        }
+        .mc-circles {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 0;
+            position: relative;
+        }
+        .mc-circle {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+        .mc-circle.red {
+            background: #eb001b;
+            animation: mcMerge 2s ease-in-out infinite;
+        }
+        .mc-circle.orange {
+            background: #f79e1b;
+            margin-left: -8px;
+            animation: mcMerge2 2s ease-in-out infinite;
+        }
+
+        /* Visa - card swipe */
+        @keyframes cardSwipe {
+            0% { transform: translateX(-30px) rotateY(40deg); opacity: 0; }
+            30% { opacity: 1; }
+            50% { transform: translateX(0) rotateY(0deg); opacity: 1; }
+            70% { opacity: 1; }
+            100% { transform: translateX(30px) rotateY(-40deg); opacity: 0; }
+        }
+        .visa-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            perspective: 200px;
+        }
+        .visa-card-inner {
+            width: 36px;
+            height: 24px;
+            background: linear-gradient(135deg, #1a1f71, #f7b600);
+            border-radius: 4px;
+            animation: cardSwipe 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .visa-card-inner span {
+            font-size: 0.5rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 0.05em;
+        }
+
+        /* ValueLabs - spinning gear */
+        @keyframes spinGear {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .gear-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 1.5rem;
+            animation: spinGear 4s linear infinite;
+        }
+
         /* ===== AIOPS SECTION ===== */
         .aiops-grid {
             display: grid;
@@ -990,6 +1116,16 @@
                 <!-- UPS -->
                 <div class="timeline-item reveal">
                     <div class="timeline-card">
+                        <div class="company-anim">
+                            <div class="ups-road"></div>
+                            <svg class="ups-truck" width="32" height="24" viewBox="0 0 32 24" fill="none">
+                                <rect x="0" y="4" width="20" height="14" rx="2" fill="#6b4c00"/>
+                                <rect x="20" y="8" width="10" height="10" rx="1" fill="#8b6914"/>
+                                <circle cx="7" cy="20" r="3" fill="#c084fc"/>
+                                <circle cx="25" cy="20" r="3" fill="#c084fc"/>
+                                <rect x="22" y="10" width="5" height="4" rx="1" fill="rgba(192,132,252,0.3)"/>
+                            </svg>
+                        </div>
                         <span class="timeline-period">Mar 2025 - Present</span>
                         <h3 class="timeline-company">UPS (United Parcel Service)</h3>
                         <div class="timeline-role">Lead DevOps / MLOps Engineer | Contract</div>
@@ -1010,6 +1146,9 @@
                 <!-- Apple -->
                 <div class="timeline-item reveal">
                     <div class="timeline-card">
+                        <div class="company-anim">
+                            <div class="apple-icon">&#x1F34E;</div>
+                        </div>
                         <span class="timeline-period">Apr 2023 - Feb 2025</span>
                         <h3 class="timeline-company">Apple</h3>
                         <div class="timeline-role">Sr. DevOps Engineer | Contract</div>
@@ -1029,6 +1168,12 @@
                 <!-- Mastercard -->
                 <div class="timeline-item reveal">
                     <div class="timeline-card">
+                        <div class="company-anim">
+                            <div class="mc-circles">
+                                <div class="mc-circle red"></div>
+                                <div class="mc-circle orange"></div>
+                            </div>
+                        </div>
                         <span class="timeline-period">Jul 2021 - Mar 2023</span>
                         <h3 class="timeline-company">Mastercard</h3>
                         <div class="timeline-role">Sr. DevOps Engineer | Contract</div>
@@ -1047,6 +1192,11 @@
                 <!-- Visa -->
                 <div class="timeline-item reveal">
                     <div class="timeline-card">
+                        <div class="company-anim">
+                            <div class="visa-card">
+                                <div class="visa-card-inner"><span>VISA</span></div>
+                            </div>
+                        </div>
                         <span class="timeline-period">Jan 2019 - Jun 2021</span>
                         <h3 class="timeline-company">Visa</h3>
                         <div class="timeline-role">Jr. DevOps Engineer | Contract</div>
@@ -1065,6 +1215,9 @@
                 <!-- ValueLabs -->
                 <div class="timeline-item reveal">
                     <div class="timeline-card">
+                        <div class="company-anim">
+                            <div class="gear-icon">&#x2699;&#xFE0F;</div>
+                        </div>
                         <span class="timeline-period">Jan 2018 - Dec 2018</span>
                         <h3 class="timeline-company">ValueLabs</h3>
                         <div class="timeline-role">Build & Release Engineer</div>
