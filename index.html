@@ -105,12 +105,48 @@
         }
         .nav-logo {
             font-family: 'Syne', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #1e1b2e;
+            letter-spacing: -0.02em;
+            transition: transform 0.3s ease;
+        }
+        .nav-logo:hover { transform: scale(1.04); }
+        .nav-logo .logo-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #7c3aed, #6366f1, #2563eb);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            box-shadow: 0 2px 12px rgba(124, 58, 237, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+        .nav-logo:hover .logo-icon {
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.45);
+        }
+        .nav-logo .logo-text {
             background: linear-gradient(135deg, #7c3aed, #6366f1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        .nav-logo .logo-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #7c3aed;
+            border-radius: 50%;
+            margin-left: -0.2rem;
+            animation: pulse 2s ease-in-out infinite;
         }
         .nav-links {
             display: flex;
@@ -1015,7 +1051,7 @@
     <!-- ===== NAVBAR ===== -->
     <nav id="navbar">
         <div class="container">
-            <a href="#" class="nav-logo">ASP</a>
+            <a href="#" class="nav-logo"><span class="logo-icon">&lt;/&gt;</span><span class="logo-text">ASP</span><span class="logo-dot"></span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
